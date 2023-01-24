@@ -4,12 +4,39 @@ import {Tab,Tabs,Form} from 'react-bootstrap';
 import Chart from "react-apexcharts";
 import Checkin from '../components/Checkin';
 import Checkout from '../components/Checkout';
+import Mobile from '../components/Mobile';
+import Application from '../components/Application';
 
 export default function View() {
-  let linechart_options={chart : {id: "line-bar"},
-                        xaxis: {categories: ["10Nov", "09 Nov", "08 Nov"]},
+  let linechart_options={chart : {id: "line-bar",
+                        toolbar:{
+                          show:false
+                        },},                     
+                        xaxis: {categories: ["10Nov", "09 Nov", "08 Nov"],
+                          labels:{
+                            style:{
+                              colors:'white'
+                            }
+                        }},
+                        
+                        yaxis: {categories: [0, 20, 40,60,80,100],
+                          labels:{
+                            style:{
+                              colors:'white'
+                            }
+                        }},
+                        legend:{
+                          show: true,
+                          position:'top',
+                          labels:{
+                            style:{
+                              colors:'white'
+                            }
+                          }},
                         colors:['#F37B0C','#D3199F'],
-                        plotOptions: { line: { distributed: true,}}
+                        plotOptions: { line: { distributed: true,}},
+                        
+
                       }
   let linechart_series= [
             {
@@ -22,17 +49,34 @@ export default function View() {
             },
              
                   ] 
-  let barchart_options={chart : {id: "barchart-bar"},
+  let barchart_options={chart : {id: "barchart-bar" ,
+                        toolbar:{
+                          show:false
+                        },},
             xaxis: { 
-              categories: ["Manual Approval", "Pre Approval", "Rejected","Cancelled"]},
-              
-              plotOptions: { bar: { distributed: true,},},
+              categories: ["Manual Approval", "Pre Approval", "Rejected","Cancelled"],
+              labels:{
+                style:{
+                  colors:'white'
+                }
+            }},
+
+              yaxis: {categories: [0, 20, 40,60,80,100],
+                labels:{
+                  style:{
+                    colors:'white'
+                  }
+              }},
+              plotOptions: { bar: { 
+                columnWidth:'25%',
+                distributed: true,},},
               dataLabels: {
                 enabled: false
               },
               legend: {
                 show: false
               },
+              
           }
         
   let barchart_series= [
@@ -45,9 +89,20 @@ export default function View() {
             ]    
   let disburse_options={chart : {id: "disburse-bar"},
   xaxis: { 
-    categories: ["RM Approval", "Customer Confirmation", "Multiple Attempt","Manual Capture"]},
+    categories: ["RM Approval", "Customer Confirmation", "Multiple Attempt","Manual Capture"],
+    labels:{
+      style:{
+        colors:'white'
+      }
+  }},
+  yaxis: {categories: [0, 20, 40,60,80,100],
+    labels:{
+      style:{
+        colors:'white'
+      }
+  }},
     
-    plotOptions: { bar: { distributed: true,},},
+    plotOptions: { bar: { columnWidth:'25%',distributed: true,},},
     dataLabels: {
       enabled: false
     },
@@ -68,9 +123,20 @@ let disburse_series= [
   let timechart_options={chart : {id: "time-bar"},
   xaxis: { 
     name:'Minutes',
-    categories: ["Under 1", "1-2", "2-4","4-6","6-8","8-10","10+"]},
+    categories: ["Under 1", "1-2", "2-4","4-6","6-8","8-10","10+"],
+    labels:{
+      style:{
+        colors:'white'
+      }
+    }},
     
-    plotOptions: { bar: { distributed: true,},},
+    yaxis: {categories: [0, 20, 40,60,80,100],
+      labels:{
+        style:{
+          colors:'white'
+        }
+    }},
+    plotOptions: { bar: { columnWidth:'25%',distributed: true,},},
      dataLabels: {
       enabled: false
     },
@@ -180,39 +246,8 @@ let timechart_series= [
               </div>
               
             <div className='p-3'>
-
-              
-
               <div className='row p-3'>
-                <div className='card  bg_grad col-5 mb-0 m-2'>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-                <div className='card  bg_grad col-5 mb-0 m-2 '>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-                <div className='card  bg_grad col-5 mb-0 m-2'>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-                <div className='card  bg_grad col-5 mb-0 m-2 '>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-
+              <Application/>
               </div>
             </div>  
             </div>
@@ -272,40 +307,8 @@ let timechart_series= [
               </div>
               
             <div className='p-3'>
-
-              
-
               <div className='row p-3'>
-                <div className='card  bg_grad col-5 mb-0 m-2'>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-                <div className='card  bg_grad col-5 mb-0 m-2 '>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-                <div className='card  bg_grad col-5 mb-0 m-2'>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-                <div className='card  bg_grad col-5 mb-0 m-2 '>
-                  <h6 className='text-center textsize mt-2'>By Repeat SMS</h6>
-                  <div className='d-flex mt-2 mb-2'>
-                    <h5 className='num'>15</h5>
-                    <h5 className='greennum textr col'>10%</h5>
-                  </div>
-                </div>
-            
-
+                <Mobile/>
               </div>
             </div>  
             </div>
@@ -432,8 +435,7 @@ let timechart_series= [
         </div>
         
       </div>
-      
-              
+     
         </div>
     </div>
   )

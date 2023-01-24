@@ -3,7 +3,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 export default function Header() {
-    const provider=[
+     const provider=[
         {
             image:'https://s3-alpha-sig.figma.com/img/ff81/1761/7892f08757b8b107057101280b34e907?Expires=1674432000&Signature=V1ixuDIu6YjVG-Lt85UZcR5oD4uRte7d~KGjwud772FTt0iFNTUxj45TAw97Ojtxln7ZPFOmRd~Tyhs4VukRdzce7eNNlbGlk0Mek1Woghlem0ibwq3fK7jX8p9XnJYbkTph4RXp9QPmichpYLcXz4crezZG~8Mw6RDO3pEjdcFZp-h0xkGOZ1uWOC230O-DPCFD12tzXPnSuKkjklkZ43uUxYGBIUkHrSk06481zL67WJ7aUDZV9pqDZrMWV5CM9eI2F9YLlLH-OG~GQleIprmuAFvkI4syq~tDb6QLpPoaO-zbdvUEW0WtX4~N-0tDxI2i4fGCTlev7Fn3esUwTw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
         },
@@ -48,14 +48,14 @@ export default function Header() {
         <button className='btn btn-light text-danger'><h6>Export To PDF</h6></button>
         </div>
         <div className='row m-2'>
-            <h6 className='col-3'>Market </h6>
+            <h6 className='col-3 mt-2'>Market </h6>
             <select className="form-select font  col" >
                 <option  value="uganda">Uganda</option>
                 <option value="india">India</option>
             </select> 
           </div>
           <div className='row m-2'>
-            <h6 className='col-3'>Provider</h6>
+            <h6 className='col-3 mt-2'>Provider</h6>
            <div className='col'> 
             {provider.map((item,index)=>{return (<button className='btn-default btn' key={index}><img className='size'  src={item.image} alt='Provider'/> </button>)})}
             </div>
